@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     gemini_api_key: str
     gemini_model: str = "gemini-3.5-flash"
     # Comma-separated origins — set CORS_ORIGINS env var on Render to add your Vercel URL
-    cors_origins: list[str] = [
+    cors_origins: str = [
         "http://localhost:3000",
         "http://127.0.0.1:3000",
     ]
