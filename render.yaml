@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: mailcraft-ai-backend
+    runtime: python
+    buildCommand: pip install uv && uv sync --frozen
+    startCommand: uv run uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false          # You paste this in Render dashboard — never committed
+      - key: CORS_ORIGINS
+        sync: false          # Set to your Vercel frontend URL after deploy
+      - key: PYTHON_VERSION
+        value: "3.12"
